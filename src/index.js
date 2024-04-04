@@ -4,30 +4,42 @@ const tableBody = document.querySelector("tbody#contacts");
 
 // ITERATION 0 | Example Row
 // Splice 1 element from the contacts array at the random index
-// const randomIndex = Math.floor(Math.random() * contacts.length);
-// const splicedArr = contacts.splice(randomIndex, 1);
+const randomIndex = Math.floor(Math.random() * contacts.length);
+const splicedArr = contacts.splice(randomIndex, 1);
 
 // // Get the element from the spliced array
-// const randomContact = splicedArr[0];
+const randomContact = splicedArr[0];
 
-// const exampleRow = document.createElement("tr");
-// exampleRow.innerHTML = `
-//   <td>
-//     <img src="${randomContact.pictureUrl}" />
-//   </td>
-//   <td> ${randomContact.name} </td>
-//   <td> ${randomContact.popularity.toFixed(2)} </td>
-//   <td>
-//     <button class="btn-delete">Delete</button>
-//   </td>
-//   <td>
-//     <button class="btn-like">
-//       <img src="./images/icon.png" alt="like" />
-//     </button>
-//   </td>
-// `;
+const exampleRow = document.createElement("tr");
+exampleRow.innerHTML = `
+  <td>
+    <img src="${randomContact.pictureUrl}" />
+  </td>
+  <td> ${randomContact.name} </td>
+  <td> ${randomContact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`;
 
-// tableBody.appendChild(exampleRow);
+tableBody.appendChild(exampleRow);
+
+const buttonDelete = exampleRow.querySelector(".btn-delete");
+buttonDelete.addEventListener("click", () => {
+  exampleRow.remove();
+});
+// ITERATION 3 - Like Buttons
+
+// Your code goes here ...
+const likedButton = exampleRow.querySelector(".btn-like");
+likedButton.addEventListener("click", () => {
+  likedButton.classList.toggle("selected");
+});
 
 // ITERATION 1 - Display 3 contacts
 // Get the first 3 contacts from the 'contacts' array.
@@ -73,14 +85,16 @@ threeContacts.map((contact) => {
 
 // Your code goes here ...
 buttonAddRandom.addEventListener("click", function () {
-  const randomIndex1 = Math.floor(Math.random() * contacts.length);
-  const randomPerson = contacts[randomIndex1];
+  const randomIndex = Math.floor(Math.random() * contacts.length);
+  const randomContact = contacts[randomIndex];
+  // const randomIndex = Math.floor(Math.random() * contacts.length);
+  // const randomContact = contacts.splice(randomIndex, 1)[0];
   const newRow = document.createElement("tr");
   newRow.innerHTML = ` <td>
-    <img src="${randomPerson.pictureUrl}" />
+    <img src="${randomContact.pictureUrl}" />
   </td>
-  <td> ${randomPerson.name} </td>
-  <td> ${randomPerson.popularity.toFixed(2)} </td>
+  <td> ${randomContact.name} </td>
+  <td> ${randomContact.popularity.toFixed(2)} </td>
   <td>
     <button class="btn-delete">Delete</button>
   </td>
