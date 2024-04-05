@@ -33,9 +33,7 @@ const buttonDelete = exampleRow.querySelector(".btn-delete");
 buttonDelete.addEventListener("click", () => {
   exampleRow.remove();
 });
-// ITERATION 3 - Like Buttons
 
-// Your code goes here ...
 const likedButton = exampleRow.querySelector(".btn-like");
 likedButton.addEventListener("click", () => {
   likedButton.classList.toggle("selected");
